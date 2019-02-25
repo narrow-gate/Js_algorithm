@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ListNode(val){
+this.val=val;
+this.next=null;
+}
+    var addTwoNumbers = function(l1, l2) {
+let carry=0;
+let arr=[];
+while(l1||l2){
+    let a=l1?l1.val:null;
+    let b=l2?l2.val:null;
+    let sum=a+b+carry;
+    arr.push(sum%10);
+    if(parseInt(sum/10)){
+        carry=1
+    }
+    l1=l1?l1.next:null;
+    l2=l2?l2.next:null;
+}
+if(parseInt(sum/10)){
+    arr.push(parseInt(sum/10))
+}
+var res=new ListNode(0);
+var tmp=res.next=new ListNode(0);
+for(var i=0;i<arr.length;i++){
+    tmp=tmp.next=new ListNode(0);
+    tmp.val=arr[i]
+}return res.next.next;
+};
+    </script>
+</body>
+</html>
